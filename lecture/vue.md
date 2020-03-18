@@ -36,15 +36,15 @@ In the vue instance we can pass many properties such as el, data, methods, compu
 
 ```javascript
 new Vue({
-  el: '#app',
-  data:{
-    counter: 0
-  },
-  methods:{
-    increase: function(){
-      this.counter++;
-  	}
-  }
+    el: '#app',
+    data: {
+        counter: 0
+    },
+    methods: {
+        increase: function() {
+            this.counter++;
+        }
+    }
 });
 ```
 
@@ -66,7 +66,6 @@ new Vue({
   <button @click="counter--">Decrease</button>
   <button @click="secondCounter++">Increase Second</button>
   {{result()}} {{out}}
-  
 </div>
 ```
 
@@ -74,24 +73,25 @@ new Vue({
 
 ```javascript
 new Vue({
-  el: '#app',
-  data:{
-    counter: 0,
-    secondCounter: 0
-  },
-  methods:{
-    result: function(){
-      console.log('methods');
-     	return this.count > 5;
-  	}
-  }
-  computed:{
-  	out: function(){
-  		console.log('computed');
-  		return this.counter > 5;
-		}
-	}
+    el: '#app',
+    data: {
+        counter: 0,
+        secondCounter: 0
+    },
+    methods: {
+        result: function() {
+            console.log('methods');
+            return this.count > 5;
+        }
+    },
+    computed: {
+        out: function() {
+            console.log('computed');
+            return this.counter > 5;
+        }
+    }
 });
+
 ```
 
 
