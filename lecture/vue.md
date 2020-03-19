@@ -39,7 +39,7 @@ In the vue instance we can pass many properties such as el, data, methods, compu
 **Example**
 
 ```html
-<!-- inde.html -->
+<!-- index.html -->
 <div id="app">
     {{myMessage}}
 </div>
