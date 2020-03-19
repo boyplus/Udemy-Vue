@@ -99,6 +99,191 @@ From that code, methods **result()** will be executed everytime we click the but
 
 ***Note** we don't have to invoked the out function, we call it **as the variable** (no parentheses)
 
-- Watch -> the object that hold the function (name of function is similar to data) for watching the change of variable (function will be executed everytime that value has changed)
-- 
+- **Watch** -> the object that hold the function (name of function is similar to data) for watching the change of variable (function will be executed everytime that value has changed)
+
+
+
+**Display data in vue to the html**
+
+-> we can access the variable in data to html by using **{{myVar}}**
+
+```javascript
+new Vue({
+    el: '#app',
+    data: {
+        number: 12
+    }
+});
+```
+
+```html
+<div id="app">
+  <p>{{number}}</p>
+</div>
+```
+
+
+
+**Vue-directive**
+
+- **v-on:** -> listen to the event ex. input, click, mousemove
+
+  ```html
+  <div v-on:click="increase">Increase</div>
+  ```
+
+- **v-bind:** -> bind the value in data for using in html attribute, we use **v-bind:** because the value in attribute in html is in "", so we cannot access data in vue by using {{}}
+
+  ```html
+  <div v-bind:id="dynamicId"></div>
+  ```
+
+- **v-once:** -> render the element only once (if the data change, it will not be rerendered
+
+***Note** in methods of vue instance, if we want to access the variable in data, we have to use **this** key word ex. **this.counter++;**
+
+
+
+**Shorthand for v-on: directive**
+
+-> we can use @ ex. **@click="increase"** is similar to **v-on:click="increase"**
+
+
+
+**Shorthand for v-bind: directive**
+
+-> we can use **:** for the shorthand for **v-bind:**
+
+```html
+<a v-bind:href="url"></a>
+<a :href="url"></a>
+```
+
+
+
+**Handle the input**
+
+-> we can use **v-on:input** to listen to the **inputChange** event, we can also receive the event object from input element
+
+```html
+<input type="text" v-on:input="myChange" />
+```
+
+```javascript
+new Vue({
+  	data:{
+      msg:''
+    },
+    methods: {
+        myChange: function(event) {
+            this.msg = event.target.value;
+        }
+    }
+});
+```
+
+
+
+**Two way of binding**
+
+-> we can use v-model: to handle the input
+
+```html
+<input type="text" v-model="msg">
+```
+
+```javascript
+new Vue({
+    data: {
+        msg: ''
+    }
+});
+```
+
+**"The x value in data will be the text from input"**
+
+
+
+**The callback function in Vue directive**
+
+-> if there is only one statement in callback function, we can pass that statement in vue directive
+
+```html
+<button @click="counter++">Increase</button>
+```
+
+
+
+**Dynamic Styling with CSS classes**
+
+-> we can pass the object of css class that we want to add in html by the object is className : someBooleanVar
+
+-> the css classes will be add to the element of the boolean var is true
+
+```html
+<div @click="attachRed = !attachRed" :class="{red:attachRed, blue:!attachRed}">
+  Hello class
+</div>
+```
+
+```javascript
+data:{
+  attachRed: false
+}
+```
+
+
+
+**Dynamic Styling with CSS classes using object and names**
+
+-> we can use the computed function to return the object for css class in html
+
+-> easy to read
+
+```html
+<div :class="divClasses">
+  Hello class
+</div>
+<div class="[color,font]">
+  Hello name class
+</div>
+```
+
+```javascript
+computed:{
+  divClasses: function(){
+    return {
+      red: this.attachRed,
+      blue: !this.attachRed
+    };
+  }
+}
+```
+
+
+
+**Setting css style without class**
+
+-> color is the variable in data of vue instance
+
+```html
+<div :style="{backgroundColor: color}">
+  My style without css
+</div>
+```
+
+```html
+<div :style="myStyle">
+  My style without css and computed function
+</div>
+```
+
+```javascript
+computed:{
+  myStyle: function(){
+    backgroundColor: this.color,
+    width: this.width + 'px';
+  }
+}
+```
 
