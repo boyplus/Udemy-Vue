@@ -34,6 +34,31 @@ In the **pure js** file + No-Library (main.js) we have to create the Vue instanc
 
 In the vue instance we can pass many properties such as el, data, methods, computed
 
+
+
+**Example**
+
+```html
+<!-- inde.html -->
+<div id="app">
+    {{myMessage}}
+</div>
+```
+
+```javascript
+//main.js
+new Vue({
+    el: '#app',
+    data: {
+        myMessage: 'Hello world'
+    }
+});
+```
+
+
+
+**Another example**
+
 ```javascript
 new Vue({
     el: '#app',
@@ -48,6 +73,8 @@ new Vue({
 });
 ```
 
+
+
 **Properties of Vue instance**
 
 - **el** -> hold the id, class of dom element in html file that we want to control
@@ -59,6 +86,8 @@ new Vue({
   Foe example, when we click button and we invoked the function and update the count value -> **html will be rerender**).
 
 - **Computed** -> similar to methods object,  but the difference is the purpose of computed is to listen to some variable, will be executed every time that the value in computed function is changed (but for the method it listen for all variable)
+
+  
 
 ```html
 <div id="app">
