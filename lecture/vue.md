@@ -171,8 +171,8 @@ new Vue({
 
 ```javascript
 new Vue({
-  	data:{
-      msg:''
+    data: {
+        msg: ''
     },
     methods: {
         myChange: function(event) {
@@ -242,22 +242,24 @@ data:{
 
 ```html
 <div :class="divClasses">
-  Hello class
+    Hello class
 </div>
-<div class="[color,font]">
-  Hello name class
+<div :class="[color,font]">
+    Hello name class
 </div>
 ```
 
 ```javascript
-computed:{
-  divClasses: function(){
-    return {
-      red: this.attachRed,
-      blue: !this.attachRed
-    };
-  }
-}
+new Vue({
+    computed: {
+        divClasses: function() {
+            return {
+                red: this.attachRed,
+                blue: !this.attachRed
+            };
+        }
+    }
+});
 ```
 
 
@@ -268,22 +270,26 @@ computed:{
 
 ```html
 <div :style="{backgroundColor: color}">
-  My style without css
+    My style without css
 </div>
 ```
 
 ```html
 <div :style="myStyle">
-  My style without css and computed function
+    My style without css and computed function
 </div>
 ```
 
 ```javascript
-computed:{
-  myStyle: function(){
-    backgroundColor: this.color,
-    width: this.width + 'px';
-  }
-}
+new Vue({
+    computed: {
+        myStyle: function() {
+            return {
+                backgroundColor: this.color,
+                width: this.width + 'px'
+            };
+        }
+    }
+});
 ```
 
