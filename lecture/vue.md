@@ -333,36 +333,38 @@ new Vue({
 
 ```html
 <div id="app">
-  <ul>
-    <li v-for="(ingredient,index) in ingredients">{{ingredient}} ({{index}})</li>
-  </ul>
-  <hr>
-  <ul>
-    <li v-for="person in persons">
-      <div v-for="(value,key,index) in person">
-        {{key}}: {{value}} ({{index}})
-      </div>
-    </li>
-  </ul>
-  <hr>
-  <template v-for="(ingredient,index) in ingredients">
-    <p>{{ingredient}}</p>
-    <p>{{index}}</p>
-  </template>
+    <ul>
+        <li v-for="(ingredient,index) in ingredients">
+            {{ingredient}} ({{index}})
+        </li>
+    </ul>
+    <hr />
+    <ul>
+        <li v-for="person in persons">
+            <div v-for="(value,key,index) in person">
+                {{key}}: {{value}} ({{index}})
+            </div>
+        </li>
+    </ul>
+    <hr />
+    <template v-for="(ingredient,index) in ingredients">
+        <p>{{ingredient}}</p>
+        <p>{{index}}</p>
+    </template>
 </div>
 ```
 
 ```javascript
 new Vue({
-	el:'#app',
-	data:{
-  	ingredients: ['meat','fruit','cookies'],
-    persons:[
-    	{name: 'boy',age: 19,color: 'red'},
-      {name: 'new',age: 20,color: 'green'},
-      {name: 'now',age: 12,color: 'blue'}
-    ]
-  }
+    el: '#app',
+    data: {
+        ingredients: ['meat', 'fruit', 'cookies'],
+        persons: [
+            { name: 'boy', age: 19, color: 'red' },
+            { name: 'new', age: 20, color: 'green' },
+            { name: 'now', age: 12, color: 'blue' }
+        ]
+    }
 });
 ```
 
