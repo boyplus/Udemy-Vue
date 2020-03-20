@@ -256,9 +256,12 @@ new Vue({
 ```
 
 ```javascript
-data:{
-  attachRed: false
-}
+new Vue({
+    el: '#app',
+    data: {
+        attachRed: false
+    }
+});
 ```
 
 
@@ -320,5 +323,64 @@ new Vue({
         }
     }
 });
+```
+
+
+
+**Rendering List with v-for**
+
+**Example**
+
+```html
+<div id="app">
+  <ul>
+    <li v-for="(ingredient,index) in ingredients">{{ingredient}} ({{index}})</li>
+  </ul>
+  <hr>
+  <ul>
+    <li v-for="person in persons">
+      <div v-for="(value,key,index) in person">
+        {{key}}: {{value}} ({{index}})
+      </div>
+    </li>
+  </ul>
+  <hr>
+  <template v-for="(ingredient,index) in ingredients">
+    <p>{{ingredient}}</p>
+    <p>{{index}}</p>
+  </template>
+</div>
+```
+
+```javascript
+new Vue({
+	el:'#app',
+	data:{
+  	ingredients: ['meat','fruit','cookies'],
+    persons:[
+    	{name: 'boy',age: 19,color: 'red'},
+      {name: 'new',age: 20,color: 'green'},
+      {name: 'now',age: 12,color: 'blue'}
+    ]
+  }
+});
+```
+
+
+
+**Looping through a list of number**
+
+```html
+<span v-for="n in 10">{{n}}</span>
+```
+
+
+
+**Add key to the element**
+
+- we should assign the **key** to the element that we create in **v-for** because we will have to kepp track of them
+
+```html
+<li v-for="ingredient in ingredients" :key="ingredient">{{ingredient}}</li>
 ```
 
