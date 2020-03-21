@@ -3,7 +3,10 @@
 </template>
 
 <script>
-export default {};
+import appServers from "./Home.vue";
+export default {
+  components: { appServers }
+};
 </script>
 
 <style></style>

@@ -669,3 +669,36 @@ new Vue({
 });
 ```
 
+<br/>
+
+**Component in Vue app**
+
+-> it consists of 3 part
+
+- template -> write the html code
+- script -> write the import, export, and vue property (data,methods)
+- style -> for css, sass
+
+```javascript
+<template>
+  <div>
+    <app-server-status v-for="server in 5" :key="server"></app-server-status>
+  </div>
+</template>
+<script>
+import ServerStatus from "./ServerStatus.vue";
+export default {
+  components: {
+    "app-server-status": ServerStatus
+  }
+};
+</script>
+```
+
+***Note** in the export default components, we can name the component that we import for many ways
+
+- we can name by using **-** to seperate each word and put it in string, and in the template we can using camel case
+- we can use **camel case**, and in the template we can also use camel case or use - as well
+
+***Note** we usually name the component by using capitalize to seperate each word (like naming the class in java)
+
