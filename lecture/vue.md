@@ -433,8 +433,6 @@ new Vue({
 
 <br/>
 
-<br/>
-
 ### Add key to the element
 
 - we should assign the **key** to the element that we create in **v-for** because we will have to kepp track of them
