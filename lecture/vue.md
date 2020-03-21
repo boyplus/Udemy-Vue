@@ -75,7 +75,7 @@ new Vue({
 
 <br/>
 
-###Properties of Vue instance
+### Properties of Vue instance
 
 - **el** -> hold the id, class of dom element in html file that we want to control
 
@@ -132,7 +132,7 @@ From that code, methods **result()** will be executed everytime we click the but
 
 <br>
 
-###Display data in vue to the html
+### Display data in vue to the html
 
 -> we can access the variable in data to html by using **{{myVar}}**
 
@@ -153,7 +153,7 @@ new Vue({
 
 <br/>
 
-###Vue-directive
+### Vue-directive
 
 - **v-on:** -> listen to the event ex. input, click, mousemove
 
@@ -190,7 +190,7 @@ new Vue({
 
 <br>
 
-###Handle the input
+### Handle the input
 
 -> we can use **v-on:input** to listen to the **inputChange** event, we can also receive the event object from input element
 
@@ -211,9 +211,9 @@ new Vue({
 });
 ```
 
+<br/>
 
-
-###Two way of binding
+### Two way of binding
 
 -> we can use **v-model:** to handle the input
 
@@ -235,7 +235,7 @@ new Vue({
 
 <br/>
 
-###The callback function in Vue directive
+### The callback function in Vue directive
 
 -> if there is only one statement in callback function, we can pass that statement in vue directive
 
@@ -245,7 +245,7 @@ new Vue({
 
 <br>
 
-###Dynamic Styling with CSS classes
+### Dynamic Styling with CSS classes
 
 -> we can pass the object of css class that we want to add in html by the object is className : someBooleanVar
 
@@ -268,7 +268,7 @@ new Vue({
 
 <br>
 
-###Dynamic Styling with CSS classes using object and names
+### Dynamic Styling with CSS classes using object and names
 
 -> we can use the computed function to return the object for css class in html
 
@@ -298,7 +298,7 @@ new Vue({
 
 <br>
 
-###Setting css style without class
+### Setting css style without class
 
 -> color is the variable in data of vue instance
 
@@ -331,7 +331,7 @@ new Vue({
 
 <hr>
 
-###Conditional Rendering with v-if
+### Conditional Rendering with v-if
 
 -> we can render some element by using **v-if** and **v-else**
 
