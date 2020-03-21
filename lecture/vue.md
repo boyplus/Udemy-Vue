@@ -34,7 +34,7 @@ In the **pure js** file + No-Library (main.js) we have to create the Vue instanc
 
 In the vue instance we can pass many properties such as el, data, methods, computed
 
-
+<br/>
 
 **Example**
 
@@ -55,7 +55,7 @@ new Vue({
 });
 ```
 
-
+<br/>
 
 **Another example**
 
@@ -73,9 +73,9 @@ new Vue({
 });
 ```
 
+<br/>
 
-
-**Properties of Vue instance**
+###Properties of Vue instance
 
 - **el** -> hold the id, class of dom element in html file that we want to control
 
@@ -130,9 +130,9 @@ From that code, methods **result()** will be executed everytime we click the but
 
 - **Watch** -> the object that hold the function (name of function is similar to data) for watching the change of variable (function will be executed everytime that value has changed)
 
+<br>
 
-
-**Display data in vue to the html**
+###Display data in vue to the html
 
 -> we can access the variable in data to html by using **{{myVar}}**
 
@@ -151,9 +151,9 @@ new Vue({
 </div>
 ```
 
+<br/>
 
-
-**Vue-directive**
+###Vue-directive
 
 - **v-on:** -> listen to the event ex. input, click, mousemove
 
@@ -171,13 +171,13 @@ new Vue({
 
 ***Note** in methods of vue instance, if we want to access the variable in data, we have to use **this** key word ex. **this.counter++;**
 
-
+<br/>
 
 **Shorthand for v-on: directive**
 
 -> we can use @ ex. **@click="increase"** is similar to **v-on:click="increase"**
 
-
+<br/>
 
 **Shorthand for v-bind: directive**
 
@@ -188,9 +188,9 @@ new Vue({
 <a :href="url"></a>
 ```
 
+<br>
 
-
-**Handle the input**
+###Handle the input
 
 -> we can use **v-on:input** to listen to the **inputChange** event, we can also receive the event object from input element
 
@@ -213,9 +213,9 @@ new Vue({
 
 
 
-**Two way of binding**
+###Two way of binding
 
--> we can use v-model: to handle the input
+-> we can use **v-model:** to handle the input
 
 ```html
 <input type="text" v-model="msg">
@@ -229,11 +229,13 @@ new Vue({
 });
 ```
 
-**"The x value in data will be the text from input"**
+**"The msg value in data will be the text from input"**
 
-<>
+<hr>
 
-**The callback function in Vue directive**
+<br/>
+
+###The callback function in Vue directive
 
 -> if there is only one statement in callback function, we can pass that statement in vue directive
 
@@ -243,7 +245,7 @@ new Vue({
 
 <br>
 
-**Dynamic Styling with CSS classes**
+###Dynamic Styling with CSS classes
 
 -> we can pass the object of css class that we want to add in html by the object is className : someBooleanVar
 
@@ -266,7 +268,7 @@ new Vue({
 
 <br>
 
-**Dynamic Styling with CSS classes using object and names**
+###Dynamic Styling with CSS classes using object and names
 
 -> we can use the computed function to return the object for css class in html
 
@@ -296,7 +298,7 @@ new Vue({
 
 <br>
 
-**Setting css style without class**
+###Setting css style without class
 
 -> color is the variable in data of vue instance
 
@@ -325,11 +327,11 @@ new Vue({
 });
 ```
 
+<br/>
 
+<hr>
 
-
-
-**Conditional Rendering with v-if**
+###Conditional Rendering with v-if
 
 -> we can render some element by using **v-if** and **v-else**
 
@@ -345,9 +347,7 @@ new Vue({
 </div>
 ```
 
-
-
-
+<br/>
 
 ```javascript
 new Vue({
@@ -360,11 +360,11 @@ new Vue({
 
 ***Note we can also make the nested if in html and use the method that return some boolean value in v-if**
 
-
+<br/>
 
 <hr>
 
-**Rendering List with v-for**
+###Rendering List with v-for
 
 -> when we have the list of items that we want to render we can accomplish by using **v-for**
 
@@ -374,13 +374,21 @@ new Vue({
 <div v-for="value in values">{{value}}</div>
 ```
 
--> we can also map the **index** in v-for like this
+**Mapping index in v-for**
 
 ```html
 <div v-for="(value,index) in values">{{index}}: {{value}}</div>
 ```
 
+**Looping through a object**
 
+```html
+<div v-for="(value,key,index) in person">
+    {{key}}: {{value}} ({{index}})
+</div>
+```
+
+<br/>
 
 **Example**
 
@@ -420,8 +428,6 @@ new Vue({
     }
 });
 ```
-
-
 
 
 
