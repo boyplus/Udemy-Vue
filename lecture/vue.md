@@ -1,6 +1,6 @@
 # Udemy-Vue
 
-**Chaper1 "Introduction"**
+**Chapter1 "Introduction"**
 
 When we want to create vue project we have to follow this
 
@@ -360,8 +360,6 @@ new Vue({
 
 ***Note we can also make the nested if in html and use the method that return some boolean value in v-if**
 
-<br/>
-
 <hr>
 
 ### Rendering with v-for
@@ -429,7 +427,7 @@ new Vue({
 });
 ```
 
-
+<br/>
 
 **Looping through a list of number**
 
@@ -446,4 +444,55 @@ new Vue({
 ```html
 <li v-for="ingredient in ingredients" :key="ingredient">{{ingredient}}</li>
 ```
+
+<br/>
+
+### Multiple vue instance, accessing vue instace from outside, refs
+
+- Multiple vue instance 
+
+  -> we can create more than one **vue instance** to control the html element
+
+- Accessing vue instacen from outside
+
+  -> we can also access the vue instace although the data that we pass from creating vue instance is private, but Vue is copy it to outside and we can access it (but the watcher of vue will not watch it).
+
+- refs
+
+  -> we can use the **refs** property to make the name of element by using **$refs**
+
+<br/>
+
+```html
+<div id="app1">
+  {{msg}}
+  <button @click="chnage" ref="myButton">Click me!</button>
+</div>
+<div id="app2">{{msg}}</div>
+```
+
+```javascript
+const vm1 = new Vue({
+    data: {
+        msg: 'Hello app1'
+    },
+  	methods:{
+      change: function(){
+       	this.msg = 'Changed message'
+      }
+    }
+});
+const vm2 = new Vue({
+    data: {
+        msg: 'Hello app2'
+    }
+});
+//they are the same way to access vue instance
+vm2.msg = 'Change app2 from outside';
+vm.$data.msg = 'Change app2 in data from outside';
+
+vm1.$ref2.myButton.innerText = 'Change button from $refs'
+```
+
+
 
