@@ -1,6 +1,6 @@
 # Udemy-Vue
 
-**Chapter1 "Introduction"**
+## Chapter1 "Introdunction"
 
 When we want to create vue project we have to follow this
 
@@ -131,6 +131,8 @@ From that code, methods **result()** will be executed everytime we click the but
 - **Watch** -> the object that hold the function (name of function is similar to data) for watching the change of variable (function will be executed everytime that value has changed)
 
 <br>
+
+## Chapter 2 "Interact with the DOM"
 
 ### Display data in vue to the html
 
@@ -331,6 +333,8 @@ new Vue({
 
 <hr>
 
+## Chapter3 "Using Conditionals and Rendering List"
+
 ### Conditional Rendering with v-if
 
 -> we can render some element by using **v-if** and **v-else**
@@ -447,6 +451,8 @@ new Vue({
 
 <br/>
 
+## Chapter5 "Understanding the Vue instance"
+
 ### Multiple vue instance, accessing vue instace from outside, refs
 
 - Multiple vue instance 
@@ -545,4 +551,48 @@ new Vue({
     el: '#app'
 });
 ```
+
+<br/>
+
+### Vue instance life cycle
+
+- beforeCreate()
+
+- created()
+
+- beforeMount()
+
+  -> before the dom is rendered
+
+- mounted()
+
+  -> after dom is rendered
+
+- beforeUpdate()
+
+  -> before the data has updated
+
+- updated()
+
+  -> after the data has updated
+
+- beforeDestroy()
+
+  -> before we call the **$destroy()** function
+
+- destroyed()
+
+  -> after we call the **$destroy()** function
+
+  ```javascript
+  new Vue({
+    methods:{
+      myDestroy: function(){
+        this.$destroy();
+      }
+    }
+  });
+  ```
+
+  if we call **$destroy()** that means we **kill this vue instance,** so we cannot access data or call any methods inside this vue instance
 
