@@ -431,9 +431,9 @@ new Vue({
 <span v-for="n in 10">{{n}}</span>
 ```
 
+<br/>
 
-
-
+<br/>
 
 ### Add key to the element
 
