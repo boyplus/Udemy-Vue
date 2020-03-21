@@ -1,6 +1,6 @@
 # Udemy-Vue
 
-## Chapter1 "Introdunction"
+## Chapter1 "Introduction"
 
 When we want to create vue project we have to follow this
 
@@ -595,4 +595,10 @@ new Vue({
   ```
 
   if we call **$destroy()** that means we **kill this vue instance,** so we cannot access data or call any methods inside this vue instance
+
+<br/>
+
+## Chapter 6 "Real development workflow"
+
+
 
