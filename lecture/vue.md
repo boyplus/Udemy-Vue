@@ -364,7 +364,7 @@ new Vue({
 
 <hr>
 
-###Rendering with v-for
+### Rendering with v-for
 
 -> when we have the list of items that we want to render we can accomplish by using **v-for**
 
