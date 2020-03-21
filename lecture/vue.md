@@ -325,7 +325,9 @@ new Vue({
 });
 ```
 
-<br>
+
+
+
 
 **Conditional Rendering with v-if**
 
@@ -343,7 +345,9 @@ new Vue({
 </div>
 ```
 
-<br>
+
+
+
 
 ```javascript
 new Vue({
@@ -355,6 +359,8 @@ new Vue({
 ```
 
 ***Note we can also make the nested if in html and use the method that return some boolean value in v-if**
+
+
 
 <hr>
 
@@ -417,6 +423,8 @@ new Vue({
 
 
 
+
+
 **Looping through a list of number**
 
 ```html
@@ -425,7 +433,9 @@ new Vue({
 
 
 
-**Add key to the element**
+
+
+### Add key to the element
 
 - we should assign the **key** to the element that we create in **v-for** because we will have to kepp track of them
 
