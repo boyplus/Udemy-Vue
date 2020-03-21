@@ -600,5 +600,72 @@ new Vue({
 
 ## Chapter 6 "Real development workflow"
 
+<br/>
 
+
+
+## Chapter 7 "Introduction to components"
+
+```html
+<div id="app">
+  <my-cmp></my-cmp>
+  <my-cmp></my-cmp>
+</div>
+```
+
+```javascript
+Vue.component('my-cmp',{
+  data: function(){
+    return {
+      status: 'Critical'
+    };
+  },
+  template: '<p>Server Status: {{status}}</p>'
+});
+new Vue({
+  el: '#app'
+});
+```
+
+***Note** if we create data object outside the data function, every component will share that object (change data in some component will change all component becuase they point at the same address)
+
+```javascript
+const data = {status: 'Critical'};
+Vue.component('app-cmp',{
+  data: function(){
+    return data; // share the same object (same address)
+  },
+  template: '<p>Server Status: {{status}}</p>'
+});
+```
+
+***Note** The Vue.component() is to create the globally component (that means every html element can access that component)
+
+<br/>
+
+**Locally component**
+
+-> we can create the local component by createing as the object (remove Vue.component(cmpName) )
+
+-> In the vue instance we pass the el, and component that we want to use
+
+```html
+<div id="app">
+    <my-cmp></my-cmp>
+    <my-cmp></my-cmp>
+</div>
+```
+
+```javascript
+const cmp = {
+    data: function() {
+        return { Status: 'Critical' };
+    },
+    template: '<p>Server Status: {{status}}</p>'
+};
+new Vue({
+    el: '#app',
+    components: { 'my-cmp': cmp }
+});
+```
 
