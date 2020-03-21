@@ -473,26 +473,76 @@ new Vue({
 
 ```javascript
 const vm1 = new Vue({
+    el: '#app1',
     data: {
         msg: 'Hello app1'
     },
-  	methods:{
-      change: function(){
-       	this.msg = 'Changed message'
-      }
+    methods: {
+        change: function() {
+            this.msg = 'Changed message';
+        }
     }
 });
 const vm2 = new Vue({
+    el: '#app2',
     data: {
         msg: 'Hello app2'
     }
 });
 //they are the same way to access vue instance
 vm2.msg = 'Change app2 from outside';
-vm.$data.msg = 'Change app2 in data from outside';
+vm2.$data.msg = 'Change app2 in data from outside';
 
-vm1.$ref2.myButton.innerText = 'Change button from $refs'
+vm1.$ref2.myButton.innerText = 'Change button from $refs';
 ```
 
+<br/>
 
+### Mounting a Template
+
+-> we can delete the el property from vue instance and use the **$mount** method to render the html
+
+```html
+<div id="app1">{{msg}}</div>
+<div id="app2"></div>
+```
+
+```javascript
+const vm1 = new Vue({
+  data:{
+    msg:'hello mount'
+  }
+});
+vm1.$mount('#app1');
+
+//Mounting a template
+const vm2 = new Vue({
+  template: '<h1>Hello template</h1>'
+});
+vm2.$mount('#app2');
+```
+
+-> **disadvantage** of mount a template like this is it is complicated and hard to code because the html code is in the string
+
+<br/>
+
+### Components
+
+-> we use component because we can reuse it!, but we still have to create another vue instance to render that template
+
+```html
+<div id="app">
+  <hello></hello>
+	<hello></hello>
+</div>
+```
+
+```javascript
+Vue.component('hello',{
+  template: '<h1>Hello component</h1>'  
+});
+new Vue({
+  el: '#app'
+});
+```
 
