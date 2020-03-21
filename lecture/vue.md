@@ -231,7 +231,7 @@ new Vue({
 
 **"The x value in data will be the text from input"**
 
-
+<>
 
 **The callback function in Vue directive**
 
@@ -241,7 +241,7 @@ new Vue({
 <button @click="counter++">Increase</button>
 ```
 
-
+<br>
 
 **Dynamic Styling with CSS classes**
 
@@ -264,7 +264,7 @@ new Vue({
 });
 ```
 
-
+<br>
 
 **Dynamic Styling with CSS classes using object and names**
 
@@ -294,7 +294,7 @@ new Vue({
 });
 ```
 
-
+<br>
 
 **Setting css style without class**
 
@@ -325,9 +325,56 @@ new Vue({
 });
 ```
 
+<br>
 
+**Conditional Rendering with v-if**
+
+-> we can render some element by using **v-if** and **v-else**
+
+-> Syntax is **v-if="booleanValue"**
+
+```html
+<div id="app">
+    <div v-if="showParagraph">This is a paragraph</div>
+    <div v-else>This is another paragraph</div>
+    <button @click="showParagraph=!showParagraph">
+        Toggle paragraph
+    </button>
+</div>
+```
+
+<br>
+
+```javascript
+new Vue({
+    el: '#app',
+    data: {
+        showParagraph: true
+    }
+});
+```
+
+***Note we can also make the nested if in html and use the method that return some boolean value in v-if**
+
+<hr>
 
 **Rendering List with v-for**
+
+-> when we have the list of items that we want to render we can accomplish by using **v-for**
+
+**Syntax**
+
+```html
+<div v-for="value in values">{{value}}</div>
+```
+
+-> we can also map the **index** in v-for like this
+
+```html
+<div v-for="(value,index) in values">{{index}}: {{value}}</div>
+```
+
+
 
 **Example**
 
