@@ -509,15 +509,15 @@ vm1.$ref2.myButton.innerText = 'Change button from $refs';
 
 ```javascript
 const vm1 = new Vue({
-  data:{
-    msg:'hello mount'
-  }
+    data: {
+        msg: 'hello mount'
+    }
 });
 vm1.$mount('#app1');
 
 //Mounting a template
 const vm2 = new Vue({
-  template: '<h1>Hello template</h1>'
+    template: '<h1>Hello template</h1>'
 });
 vm2.$mount('#app2');
 ```
@@ -532,17 +532,17 @@ vm2.$mount('#app2');
 
 ```html
 <div id="app">
-  <hello></hello>
-	<hello></hello>
+    <hello></hello>
+    <hello></hello>
 </div>
 ```
 
 ```javascript
-Vue.component('hello',{
-  template: '<h1>Hello component</h1>'  
+Vue.component('hello', {
+    template: '<h1>Hello component</h1>'
 });
 new Vue({
-  el: '#app'
+    el: '#app'
 });
 ```
 
