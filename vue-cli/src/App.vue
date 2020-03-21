@@ -1,5 +1,5 @@
 <template>
-  <h1>Hello app</h1>
+  <app-servers></app-servers>
 </template>
 
 <script>
