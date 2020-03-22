@@ -679,7 +679,7 @@ new Vue({
 - script -> write the import, export, and vue property (data,methods)
 - style -> for css, sass
 
-```javascript
+```vue
 <template>
   <div>
     <app-server-status v-for="server in 5" :key="server"></app-server-status>
@@ -701,4 +701,64 @@ export default {
 - we can use **camel case**, and in the template we can also use camel case or use - as well
 
 ***Note** we usually name the component by using capitalize to seperate each word (like naming the class in java)
+
+<br/>
+
+**Style in Vue**
+
+-> in the style tag, if we did not add **scoped** keyword, all of the style can be applied to every html element 
+
+-> add the scoped keyword to make sure that this style will be applied only that component
+
+```vue
+<style scoped>
+  div{
+    background-color: blue;
+  }
+</style>
+```
+
+<br/>
+
+## Chapter8 "Communicating between Components"
+
+-> we can pass the data through the props from parent to child component
+
+-> props['props-name'], we can access it in template, methods and anywhere like it is a variable in data property of vue instance
+
+```vue
+//User.vue
+<template>
+	<div>
+    <app-user-detail :name="name"></app-user-detail>
+  </div>
+</template>
+<script>
+  import UserDetail from './UserDetail.vue';
+	export default{
+    data(){
+      return {name:'Thanaphon'}
+    },
+    components:{
+      appUserDetail: UserDetail
+    }
+  }
+</script>
+```
+
+```vue
+//UserDetail.vue
+<template>
+	<div>
+    {{name}}
+  </div>
+</template>
+<script>
+	export default{
+    data(){
+      props:['name']
+    }
+  }
+</script>
+```
 
