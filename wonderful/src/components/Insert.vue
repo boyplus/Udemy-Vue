@@ -2,27 +2,40 @@
     <div id="insert">
         <div id="myInsert">
             <h6>Quote</h6>
-            <textarea class="form-control" type="text" rows="5" />
+            <textarea class="form-control" type="text" rows="5" v-model="msg" />
             <div id="addBtn">
-                <button type="button" class="btn btn-primary">Add Quote</button>
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    @click="addQuote(msg)"
+                >
+                    Add Quote
+                </button>
             </div>
         </div>
     </div>
 </template>
 <script>
-export default {};
+export default {
+    props: {
+        addQuote: Function
+    },
+    data() {
+        return {
+            msg: ''
+        };
+    }
+};
 </script>
 
 <style scoped>
 #insert {
-    /* background-color: aquamarine; */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
 }
 #myInsert {
-    /* background-color: aliceblue; */
     padding: 30px;
     width: 70%;
 }
