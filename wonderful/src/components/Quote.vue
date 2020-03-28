@@ -1,8 +1,16 @@
 <template>
-    <div id="quote"></div>
+    <div id="quote" class="card">
+        {{ msg }}
+    </div>
 </template>
 <script>
-export default {};
+export default {
+    props: ['msg']
+};
 </script>
 
-<style scoped></style>
+<style scoped>
+#quote {
+    min-height: 100px;
+}
+</style>

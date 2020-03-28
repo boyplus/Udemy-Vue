@@ -1,8 +1,8 @@
 <template>
     <div id="app" class="container">
-        <app-header></app-header>
+        <app-header :size="quotes.length"></app-header>
         <appInsert :addQuote="addQuote"></appInsert>
-        <app-quotes></app-quotes>
+        <app-quotes :quotes="rows"></app-quotes>
         <appFooter></appFooter>
     </div>
 </template>
@@ -20,23 +20,30 @@ export default {
     },
     data() {
         return {
-            masg: '',
             maxQuote: 10,
-            quotes: []
+            quotes: [],
+            rows: [[], [], []]
         };
     },
     methods: {
         addQuote(msg) {
-            console.log('hello');
             console.log(msg);
-            // console.log(this.msg);
-            
-            // if (this.quotes.length < 10) {
-            //     this.quotes.push(this.msg);
-            //     this.msg = '';
-            // } else {
-            //     alert('You cannot add quote anymore');
-            // }
+            if (this.quotes.length < 10) {
+                this.quotes.push(msg);
+                let index = 0;
+                this.rows = [[], [], []];
+                for (let i = 0; i < this.quotes.length; i++) {
+                    if (this.rows[index].length >= 4) {
+                        index++;
+                        this.rows[index].push(this.quotes[i]);
+                    } else {
+                        this.rows[index].push(this.quotes[i]);
+                    }
+                }
+                console.log(this.quotes);
+            } else {
+                alert('You cannot add quote anymore');
+            }
         }
     }
 };
@@ -45,5 +52,10 @@ export default {
 <style scoped>
 #app {
     margin-top: 30px;
+}
+</style>
+<style>
+*{
+    box-sizing: border-box;
 }
 </style>

@@ -7,7 +7,7 @@
                 <button
                     type="button"
                     class="btn btn-primary"
-                    @click="addQuote(msg)"
+                    @click="insertQuote"
                 >
                     Add Quote
                 </button>
@@ -24,6 +24,12 @@ export default {
         return {
             msg: ''
         };
+    },
+    methods: {
+        insertQuote() {
+            this.addQuote(this.msg);
+            this.msg = '';
+        }
     }
 };
 </script>
