@@ -762,3 +762,46 @@ export default {
 </script>
 ```
 
+
+
+### Chapter 11 Handling input form
+
+-> we can use **v-model** to bind input and data in vue instance
+
+-> in checkbox we can use array to store the data
+
+-> ex. sendMail['sendMail','sendInfoMail'] -> check two boxes
+
+-> we can use **style="white-space: pre"** to display the text of text area in input with break lines
+
+```vue
+<template>
+	<input type="email" v-model="userData.email">
+	<input type="password" v-model="userData.password">
+<label for="sendMail">
+	<input id="sendMail" type="checkbox" value="sendMail" v-model="sendMail">
+  Send Mail
+</label>
+<label for="sendInfoMail">
+	<input id="sendInfoMail" type="checkbox" value="sendInfoMail" v-model="sendMail">
+  Send Info Mail
+</label>
+<textarea v-model="msg" rows="4" cols="50"></textarea>
+
+<p style="white-space: pre">{{msg}}</p>
+</template>
+
+<script>
+  export default {
+    data(){
+      userData:{
+        email:''
+        password:''
+      },
+      msg: '',
+      sendMail:[]
+    }
+  };
+</script>
+```
+
