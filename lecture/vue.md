@@ -779,38 +779,63 @@ export default {
 ```vue
 <template>
     <div>
-        <input type="email" v-model="userData.email" />
-        <input type="password" v-model="userData.password" />
-        <label for="sendMail">
-            <input
-                id="sendMail"
-                type="checkbox"
-                value="sendMail"
-                v-model="sendMail"
-            />
-            Send Mail
-        </label>
-        <label for="sendInfoMail">
-            <input
-                id="sendInfoMail"
-                type="checkbox"
-                value="sendInfoMail"
-                v-model="sendMail"
-            />
-            Send Info Mail
-        </label>
-        <textarea v-model="msg" rows="4" cols="50"></textarea>
+        <form>
+            <input type="email" v-model="userData.email" />
+            <input type="password" v-model="userData.password" />
+            <label for="sendMail">
+                <input
+                    id="sendMail"
+                    type="checkbox"
+                    value="sendMail"
+                    v-model="sendMail"
+                />
+                Send Mail
+            </label>
+            <label for="sendInfoMail">
+                <input
+                    id="sendInfoMail"
+                    type="checkbox"
+                    value="sendInfoMail"
+                    v-model="sendMail"
+                />
+                Send Info Mail
+            </label>
+            <textarea v-model="msg" rows="4" cols="50"></textarea>
 
-        <div>
-            <label for="male">
-                <input type="radio" id="male" value="Male" v-model="gender" />
-            </label>
-            <label for="female">
-                <input type="radio" id="male" value="Male" v-model="gender" />
-            </label>
+            <div>
+                <label for="male">
+                    <input
+                        type="radio"
+                        id="male"
+                        value="Male"
+                        v-model="gender"
+                    />
+                </label>
+                <label for="female">
+                    <input
+                        type="radio"
+                        id="male"
+                        value="Male"
+                        v-model="gender"
+                    />
+                </label>
+            </div>
+
+            <select v-model="selectedPriority">
+                <option v-for="priority in priorities" :key="priority">
+                    {{ priority }}
+                </option>
+            </select>
+            <button @click.prevent="submittted">Sunbitted</button>
+        </form>
+
+        <div v-if="isSubmitted">
+            {{ userData.email }}
+            {{ userData.password }}
+            {{ sendMail }}
+            {{ selectedPriority }}
+            <p style="white-space: pre">{{ msg }}</p>
         </div>
-
-        <p style="white-space: pre">{{ msg }}</p>
     </div>
 </template>
 
@@ -824,11 +849,23 @@ export default {
             },
             msg: '',
             sendMail: [],
-            gender: 'Male'
+            gender: 'Male',
+            priorities: ['High', 'Mediim', 'Low'],
+            selectedPriority: 'High',
+            isSubmitted: false
         };
+    },
+    methods:{
+        submittted(){
+            this.isSubmitted = true;
+        }
     }
 };
 </script>
 
 ```
+
+
+
+-> if we want to create submit form button, we have to use **@click.prevent = "function"** to prevent the send the data to the server (like preventDefault())
 
