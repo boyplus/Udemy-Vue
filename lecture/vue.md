@@ -774,34 +774,61 @@ export default {
 
 -> we can use **style="white-space: pre"** to display the text of text area in input with break lines
 
+-> we can also use **v-model** in radio button (it with group by using v-mode="value")
+
 ```vue
 <template>
-	<input type="email" v-model="userData.email">
-	<input type="password" v-model="userData.password">
-<label for="sendMail">
-	<input id="sendMail" type="checkbox" value="sendMail" v-model="sendMail">
-  Send Mail
-</label>
-<label for="sendInfoMail">
-	<input id="sendInfoMail" type="checkbox" value="sendInfoMail" v-model="sendMail">
-  Send Info Mail
-</label>
-<textarea v-model="msg" rows="4" cols="50"></textarea>
+    <div>
+        <input type="email" v-model="userData.email" />
+        <input type="password" v-model="userData.password" />
+        <label for="sendMail">
+            <input
+                id="sendMail"
+                type="checkbox"
+                value="sendMail"
+                v-model="sendMail"
+            />
+            Send Mail
+        </label>
+        <label for="sendInfoMail">
+            <input
+                id="sendInfoMail"
+                type="checkbox"
+                value="sendInfoMail"
+                v-model="sendMail"
+            />
+            Send Info Mail
+        </label>
+        <textarea v-model="msg" rows="4" cols="50"></textarea>
 
-<p style="white-space: pre">{{msg}}</p>
+        <div>
+            <label for="male">
+                <input type="radio" id="male" value="Male" v-model="gender" />
+            </label>
+            <label for="female">
+                <input type="radio" id="male" value="Male" v-model="gender" />
+            </label>
+        </div>
+
+        <p style="white-space: pre">{{ msg }}</p>
+    </div>
 </template>
 
 <script>
-  export default {
-    data(){
-      userData:{
-        email:''
-        password:''
-      },
-      msg: '',
-      sendMail:[]
+export default {
+    data() {
+        return {
+            userData: {
+                email: '',
+                password: ''
+            },
+            msg: '',
+            sendMail: [],
+            gender: 'Male'
+        };
     }
-  };
+};
 </script>
+
 ```
 
