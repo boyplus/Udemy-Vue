@@ -869,3 +869,15 @@ export default {
 
 -> if we want to create submit form button, we have to use **@click.prevent = "function"** to prevent the send the data to the server (like preventDefault())
 
+
+
+### Chapter 12 "Directive"
+
+-> we can use default vue directive and also create our own directive
+
+
+
+### Chapter 13 "Filters and Mixins"
+
+->
+
