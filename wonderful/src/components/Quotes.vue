@@ -3,9 +3,19 @@
         <h3>This is your quotes</h3>
         <br />
         <template>
-            <div class="row" v-for="quote in quotes" :key="quote" style="margin:15px">
-                <div class="col-3" v-for="q in quote" :key="q">
-                    <app-quote :msg="q"></app-quote>
+            <div
+                class="row"
+                v-for="quote in quotes"
+                :key="quote.id"
+                style="margin:15px"
+            >
+                <div
+                    class="col-3"
+                    v-for="q in quote"
+                    :key="q.id.id"
+                    @click="removeQuote(q.quote.id)"
+                >
+                    <app-quote :msg="q.quote.msg"></app-quote>
                 </div>
             </div>
         </template>
@@ -18,20 +28,13 @@ export default {
         appQuote: Quote
     },
     props: {
-        quotes: Array
+        quotes: Array,
+        removeQuote: Function
     },
     data() {
         return {};
-    },
-    updated() {
-        console.log('updated');
-        console.log(this.quotes);
     }
 };
 </script>
 
-<style scoped>
-#quotes {
-    /* box-sizing: border-box; */
-}
-</style>
+<style scoped></style>
