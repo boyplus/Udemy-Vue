@@ -20,6 +20,21 @@
                     />
                 </div>
                 <button class="btn btn-primary" @click="submit">Submit</button>
+                <hr />
+                <button class="btn btn-primary" @click="fetchData">
+                    Get Data
+                </button>
+                <br /><br />
+                <input type="text" v-model="node" />
+                <ul class="list-group">
+                    <li
+                        class="list-group-item"
+                        v-for="u in users"
+                        :key="u.username"
+                    >
+                        {{ u.username }} - {{ u.email }}
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -32,25 +47,58 @@ export default {
             user: {
                 username: '',
                 email: ''
-            }
+            },
+            users: [],
+            resource: {},
+            node: 'data'
         };
     },
     methods: {
         submit() {
-            this.$http
-                .post(
-                    'https://vue-http-e0103.firebaseio.com/data.json',
-                    this.user
-                )
-                .then(
-                    response => {
-                        console.log(response);
-                    },
-                    error => {
-                        console.log(error);
+            // this.$http.post('', this.user).then(
+            //     response => {
+            //         console.log(response);
+            //     },
+            //     error => {
+            //         console.log(error);
+            //     }
+            // );
+            // this.resource.save({}, this.user);
+            this.resource.saveAlt(this.user);
+        },
+        fetchData() {
+            // this.$http
+            //     .get('')
+            //     .then(response => {
+            //         return response.json();
+            //     })
+            //     .then(data => {
+            //         let result = [];
+            //         for (let key in data) {
+            //             result.push(data[key]);
+            //         }
+            //         this.users = result;
+            //     });
+            this.resource
+                .getData({ node: this.node })
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    let result = [];
+                    for (let key in data) {
+                        result.push(data[key]);
                     }
-                );
+                    this.users = result;
+                });
         }
+    },
+    created() {
+        const customActions = {
+            saveAlt: { method: 'POST', url: 'alternative.json' },
+            getData: { method: 'GET' }
+        };
+        this.resource = this.$resource('{node}.json', {}, customActions);
     }
 };
 </script>
