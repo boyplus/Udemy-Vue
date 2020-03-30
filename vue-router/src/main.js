@@ -5,8 +5,23 @@ import { routes } from './routes';
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
-const router = new VueRouter({ routes, mode: 'history' });
-
+const router = new VueRouter({
+    routes,
+    mode: 'history',
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        }
+        if (to.hash) {
+            return { selector: to.hash };
+        }
+        return { x: 0, y: 0 };
+    }
+});
+router.beforeEach((to, from, next) => {
+    console.log('global route');
+    next();
+});
 new Vue({
     render: h => h(App),
     router
