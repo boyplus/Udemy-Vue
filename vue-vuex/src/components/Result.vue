@@ -1,14 +1,14 @@
 <template>
     <div>
-        <p>result: {{result}}</p>
+        <p>result: {{ counter }}</p>
     </div>
 </template>
 <script>
 export default {
-    computed:{
-        result(){
+    computed: {
+        counter() {
             return this.$store.state.count;
         }
     }
-}
+};
 </script>
